@@ -7,8 +7,10 @@ import { Task } from './task.model';
     outputs: ['onTaskSelect'],
   template: `
     <div class="container">
-      <h2 (click)="taskSelected(task)">{{ task.description }}</h2>
-      <h3 (click)="idSelected(task)">#{{ task.id }}</h3>
+    <h2 (click)="taskSelected(task)">{{ task.description }}</h2>
+      <input *ngIf="task.done" type="checkbox" checked (click)="toggleDone(false)"/>
+      <input *ngIf="!task.done" type="checkbox" (click)="toggleDone(true)"/>
+      <label (click)="idSelected(task)">#{{ task.id }}</label>
     </div>
   `
 })
@@ -25,5 +27,8 @@ export class TaskComponent {
   }
   idSelected(task) : void{
     console.log(task.id);
+  }
+  toggleDone(setState: boolean){
+    this.task.done = setState;
   }
 }

@@ -5,7 +5,10 @@ import { Task } from './task.model';
   selector: 'edit-task-details',
   inputs: ['task'],
   template: `
-
+  <div class="task-form">
+  <h3>Edit Description: </h3>
+  <input [(ngModel)]="task.description"/>
+  </div>
   `
 })
 
