@@ -16,6 +16,9 @@ import { Task } from './task.model';
   <option value="all" selected="selected">Show All</option>
   <option value="done">Show Done</option>
   <option value="notDone">Show Not Done</option>
+  <option value="high">High Priority</option>
+  <option value="medium">Medium Priority</option>
+  <option value="low">Low Priority</option>
   </select>
   <div class="container" *ngFor="#currentTask of taskList | done:filterDone">
   <p>{{ currentDate }}</p>
@@ -42,8 +45,8 @@ export class TaskListComponent {
     this.coloredTask = selectedTask;
     this.receivedTask.emit(selectedTask);
   }
-  createTask(description: string){
-    this.taskList.push(new Task(description));
+  createTask(task: Task){
+    this.taskList.push(task);
   }
   onChange(filterOption){
     this.filterDone = filterOption;

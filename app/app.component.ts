@@ -21,10 +21,10 @@ export class AppComponent {
   public currentDate: string = moment().format('MMMM Do YYYY, h:mm:ss a');
   constructor(){
     this.tasks = [
-      new Task('Create To-Do List app.'),
-      new Task('Try components'),
-      new Task('Clean the toilet'),
-      new Task('Buy a ferrari'),
+      new Task('Create ToDoList', 'high'),
+      new Task('Try components', 'medium'),
+      new Task('Clean the toilet', 'low'),
+      new Task('Buy a ferrari', 'high'),
   ];
   }
   taskSelected(selectedTask: Task) : void{

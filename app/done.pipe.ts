@@ -17,8 +17,23 @@ export class DonePipe implements PipeTransform {
          return !task.done;
        })
      }
-     else {
-       return input;
+     else if(desiredDoneState === 'low') {
+       return input.filter((task) =>{
+         return this.filter(desiredDoneState, task.priority);
+       });
+     } else if (desiredDoneState === 'medium'){
+       return input.filter((task) => {
+         return this.filter(desiredDoneState, task.priority);
+       })
      }
+     else if (desiredDoneState === 'high'){
+       return input.filter((task) => {
+         return this.filter(desiredDoneState, task.priority);
+       })
+     }
+     else return input;
+  }
+  filter(string1: string, string2: string){
+    return string1 === string2;
   }
 }

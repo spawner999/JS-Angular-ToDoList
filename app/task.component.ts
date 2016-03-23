@@ -7,7 +7,7 @@ import { Task } from './task.model';
     outputs: ['onTaskSelect'],
   template: `
     <div class="container">
-    <h2 (click)="taskSelected(task)">{{ task.description }}</h2>
+      <h2 (click)="taskSelected(task)">{{ task.description }} - <span>{{ task.priority }}</span></h2>
       <input *ngIf="task.done" type="checkbox" checked (click)="toggleDone(false)"/>
       <input *ngIf="!task.done" type="checkbox" (click)="toggleDone(true)"/>
       <label (click)="idSelected(task)">#{{ task.id }}</label>
